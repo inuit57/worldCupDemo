@@ -12,6 +12,8 @@ public class WorldCupDeck {
     @Column(name = "deck_id")
     private Long id;
 
+    private String Category; // enum 으로 변경 필요?
+
     private String name;
     private String description;
 
