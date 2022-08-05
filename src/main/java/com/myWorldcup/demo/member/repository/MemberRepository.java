@@ -1,7 +1,6 @@
 package com.myWorldcup.demo.member.repository;
 
 import com.myWorldcup.demo.member.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -11,7 +10,7 @@ import javax.persistence.PersistenceContext;
 public class MemberRepository {
 
     @PersistenceContext
-    EntityManager em ;
+    private EntityManager em ;
 
     public Long save(Member member){
         em.persist(member);
