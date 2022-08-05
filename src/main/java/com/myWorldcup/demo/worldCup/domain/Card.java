@@ -1,20 +1,18 @@
 package com.myWorldcup.demo.worldCup.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Card {
 
     @Id
+    @GeneratedValue
     @Column(name = "card_id")
     private Long id;
 
     // 월드컵이랑 엮이는 Id 값
-    @ManyToOne
+//    @ManyToOne
     private Long worldCupId;
 
     private Long no;  // 해당 월드컵 내에서의 순번

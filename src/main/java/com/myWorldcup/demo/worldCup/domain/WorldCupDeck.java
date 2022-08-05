@@ -3,12 +3,14 @@ package com.myWorldcup.demo.worldCup.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class WorldCupDeck {
 
     @Id
+    @GeneratedValue
     @Column(name = "deck_id")
     private Long id;
 
