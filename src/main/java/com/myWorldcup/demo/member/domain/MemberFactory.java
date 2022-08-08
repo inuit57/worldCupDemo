@@ -1,5 +1,7 @@
 package com.myWorldcup.demo.member.domain;
 
+import java.time.LocalDateTime;
+
 public class MemberFactory {
 
     public Member createMember(MemberForm form){
@@ -9,6 +11,10 @@ public class MemberFactory {
         member.setUserPw(form.getUserPw());
         member.setNickname(form.getNickname());
         member.setEmailAddress(form.getEmailAddress());
+
+        member.setLastChangePasswordTime(LocalDateTime.now());
+        member.setWrongPasswordCount(0);
+        member.setRequiredChangePw(false);
 
         return member;
     }
