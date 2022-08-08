@@ -52,4 +52,14 @@ public class Member {
     // 비밀번호 만료일자 지정
 
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", userPw='" + userPw + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
 }
