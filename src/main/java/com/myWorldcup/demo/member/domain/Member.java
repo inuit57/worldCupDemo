@@ -23,12 +23,37 @@ public class Member {
         this.userPw = userPw;
         this.nickname = nickname;
         this.emailAddress = emailAddress;
+
+        // 비밀번호 관련, 기본 값으로 설정
+        setPasswordInfoDefault(false);
+    }
+
+    /**
+     * 비밀번호 관련 정보 기본 값으로 설정
+     * @param isTempPw 임시비밀번호 여부
+     */
+    private void setPasswordInfoDefault(boolean isTempPw) {
+        this.lastChangePasswordTime = LocalDateTime.now();
+        this.wrongPasswordCount = 0;
+        this.requiredChangePw = isTempPw; 
     }
 
     public void updateBasicInfo(MemberUpdateForm updateForm){
-        this.userPw = updateForm.getUserPw();
         this.nickname = updateForm.getUserPw();
         this.emailAddress = updateForm.getEmailAddress();
+    }
+
+    public boolean needChangePasswd(){
+        return requiredChangePw;
+    }
+
+    public void updatePassword(String password, boolean isTempPw){
+        this.userPw = password;
+        setPasswordInfoDefault(isTempPw);
+    }
+
+    public boolean passwordCheck(String password){
+        return this.userPw.equals(password);
     }
 
     @Id
