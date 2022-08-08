@@ -30,9 +30,10 @@ public class MemberController {
     }
 
     @PostMapping("/add")
-    public String addMember(@Valid MemberForm form, BindingResult result){
+    public String addMember(@Valid MemberForm form, BindingResult bindingResult){
 
-        if( result.hasErrors()){
+        if( bindingResult.hasErrors()){
+            log.debug("errors={}",bindingResult);
             return "/member/addForm";
         }
 

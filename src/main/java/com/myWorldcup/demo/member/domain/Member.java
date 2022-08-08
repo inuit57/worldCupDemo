@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,16 +18,9 @@ public class Member {
     @GeneratedValue
     private Long id;
 
-    @NotBlank
     private String userId;
-
-    @NotBlank
     private String userPw;
-
-    @NotBlank
     private String nickname;
-
-    @NotBlank
     private String emailAddress;
 
     // 가입일자
