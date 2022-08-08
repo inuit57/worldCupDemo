@@ -3,6 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>회원목록</title>
+
+    <div class="container">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>별명</th>
+                    <th>이메일</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="member : ${members}">
+                        <td th:text="${member.id}"/>
+                        <td th:text="${member.userId}"/>
+                        <td th:text="${member.nickname}"/>
+                        <td th:text="${member.emailAddress}"/>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </head>
 <body>
 
