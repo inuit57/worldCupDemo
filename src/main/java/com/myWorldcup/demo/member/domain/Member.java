@@ -2,6 +2,7 @@ package com.myWorldcup.demo.member.domain;
 
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,11 +15,28 @@ import java.time.LocalDateTime;
 @Getter @Setter(AccessLevel.PROTECTED)
 public class Member {
 
+    protected Member(){}
+
+    @Builder
+    public Member(String userId, String userPw, String nickname, String emailAddress) {
+        this.userId = userId;
+        this.userPw = userPw;
+        this.nickname = nickname;
+        this.emailAddress = emailAddress;
+    }
+
+    public void updateBasicInfo(MemberUpdateForm updateForm){
+        this.userPw = updateForm.getUserPw();
+        this.nickname = updateForm.getUserPw();
+        this.emailAddress = updateForm.getEmailAddress();
+    }
+
     @Id
     @GeneratedValue
     private Long id;
 
     private String userId;
+
     private String userPw;
     private String nickname;
     private String emailAddress;
