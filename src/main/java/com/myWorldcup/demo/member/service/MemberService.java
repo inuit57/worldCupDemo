@@ -3,6 +3,7 @@ package com.myWorldcup.demo.member.service;
 import com.myWorldcup.demo.member.domain.Member;
 import com.myWorldcup.demo.member.domain.MemberFactory;
 import com.myWorldcup.demo.member.domain.MemberForm;
+import com.myWorldcup.demo.member.domain.MemberUpdateForm;
 import com.myWorldcup.demo.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,12 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
+    @Transactional
+    public void update(Long id, MemberUpdateForm updateForm){
+
+        Member oldMember = memberRepository.find(id);
+        oldMember.updateBasicInfo(updateForm);
+        // 이후 변경감지로 자동으로 변경된다.
+    }
     
 }
