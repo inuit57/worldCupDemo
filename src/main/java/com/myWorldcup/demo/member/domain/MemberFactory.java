@@ -1,10 +1,10 @@
 package com.myWorldcup.demo.member.domain;
 
-public abstract class MemberFactory {
-
-    private Member member ;
+public class MemberFactory {
 
     public Member createMember(MemberForm form){
+        Member member = new Member();
+
         member.setUserId(form.getUserId());
         member.setUserPw(form.getUserPw());
         member.setNickname(form.getNickname());
@@ -19,6 +19,8 @@ public abstract class MemberFactory {
      * @return 테스트로 생성된 멤버 반환
      */
     public Member createMember(Long random){
+        Member member = new Member();
+
         String testId = "testId"+random;
 
         member.setUserId(testId);

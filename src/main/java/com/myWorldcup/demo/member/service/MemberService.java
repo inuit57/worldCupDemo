@@ -16,7 +16,7 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
-    private final MemberFactory memberFactory;
+    private final MemberFactory memberFactory = new MemberFactory();
 
     public List<Member> findAll() {
         return memberRepository.findAll();
