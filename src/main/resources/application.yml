@@ -12,5 +12,6 @@ spring:
         # show_sql: true
         format_sql: true
 logging.level:
+  com.myWorldcup.demo: debug
   org.hibernate.SQL: debug
 # org.hibernate.type: trace
