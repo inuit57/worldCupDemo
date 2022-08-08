@@ -2,8 +2,8 @@ package com.myWorldcup.demo.member.service;
 
 import com.myWorldcup.demo.member.domain.Member;
 import com.myWorldcup.demo.member.domain.MemberFactory;
-import com.myWorldcup.demo.member.domain.MemberForm;
-import com.myWorldcup.demo.member.domain.MemberUpdateForm;
+import com.myWorldcup.demo.member.domain.form.MemberForm;
+import com.myWorldcup.demo.member.domain.form.MemberUpdateForm;
 import com.myWorldcup.demo.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,7 +48,7 @@ public class MemberService {
 
         // 정보 수정시에는 기존 비밀번호를 다시 입력하도록 검사
         if( oldMember.passwordCheck(updatePasswd)){
-            oldMember.updateBasicInfo(updateForm);
+            oldMember.updateBasicInfo(updateForm.getNickname(), updateForm.getEmailAddress());
         }else{
 //            throw new IllegalArgumentException("비밀번호 오류!");
             // 예외를 던지는 것은 좀 고민해보자.

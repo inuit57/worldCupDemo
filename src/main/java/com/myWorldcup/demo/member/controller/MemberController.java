@@ -1,8 +1,8 @@
 package com.myWorldcup.demo.member.controller;
 
 import com.myWorldcup.demo.member.domain.Member;
-import com.myWorldcup.demo.member.domain.MemberDto;
-import com.myWorldcup.demo.member.domain.MemberForm;
+import com.myWorldcup.demo.member.domain.dto.MemberDto;
+import com.myWorldcup.demo.member.domain.form.MemberForm;
 import com.myWorldcup.demo.member.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Data;

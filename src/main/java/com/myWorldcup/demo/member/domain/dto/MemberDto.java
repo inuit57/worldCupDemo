@@ -1,4 +1,4 @@
-package com.myWorldcup.demo.member.domain;
+package com.myWorldcup.demo.member.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

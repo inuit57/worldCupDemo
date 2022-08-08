@@ -1,5 +1,7 @@
 package com.myWorldcup.demo.member.domain;
 
+import com.myWorldcup.demo.member.domain.form.MemberForm;
+
 import java.time.LocalDateTime;
 
 public class MemberFactory {

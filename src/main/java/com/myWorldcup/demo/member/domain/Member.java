@@ -38,9 +38,9 @@ public class Member {
         this.requiredChangePw = isTempPw; 
     }
 
-    public void updateBasicInfo(MemberUpdateForm updateForm){
-        this.nickname = updateForm.getUserPw();
-        this.emailAddress = updateForm.getEmailAddress();
+    public void updateBasicInfo(String nickname, String emailAddress){
+        this.nickname = nickname;
+        this.emailAddress = emailAddress;
     }
 
     public boolean needChangePasswd(){
