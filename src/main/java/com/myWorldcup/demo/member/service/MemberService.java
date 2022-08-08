@@ -22,15 +22,19 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
+    //Member 객체를 바로 받아서 저장하는 경우의 처리
     @Transactional
     public Long save(Member member){
         return memberRepository.save(member);
     }
 
+    //MemberForm 을 받아서 저장하는 경우의 처리
     @Transactional
     public Long save(MemberForm form){
 
         Member member = memberFactory.createMember(form);
         return memberRepository.save(member);
     }
+
+    
 }
