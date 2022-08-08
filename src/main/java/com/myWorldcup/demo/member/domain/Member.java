@@ -1,6 +1,7 @@
 package com.myWorldcup.demo.member.domain;
 
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter @Setter
+@Getter @Setter(AccessLevel.PROTECTED)
 public class Member {
 
     @Id
