@@ -26,11 +26,24 @@ public class MemberRepository {
         return em.createQuery("select m from Member m").getResultList();
     }
 
+    // 정보 찾기
+    public Member findByUserId(String userId){
+         return em.createQuery("select m from Member m where m.userId =:userId" , Member.class)
+                .setParameter("userId", userId)
+                .getSingleResult();
+    }
+
+    public String findUserIdByEmail(String email){
+        return em.createQuery("select m.userId from Member m where m.emailAddress = :email", String.class)
+                .setParameter("email",email)
+                .getSingleResult();
+    }
+
     public String findPasswordByUserId(String userId){
          return em.createQuery("select m.userPw from Member m " +
-                        "where m.userId = :userId")
+                        "where m.userId = :userId" , String.class)
                 .setParameter("userId", userId)
-                .getResultList().get(0).toString();
+                 .getSingleResult();
     }
 
 }
