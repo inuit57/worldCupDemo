@@ -2,7 +2,7 @@ package com.myWorldcup.demo.member.service;
 
 import com.myWorldcup.demo.member.domain.Member;
 import com.myWorldcup.demo.member.domain.MemberFactory;
-import com.myWorldcup.demo.member.domain.form.MemberForm;
+import com.myWorldcup.demo.member.domain.form.MemberAddForm;
 import com.myWorldcup.demo.member.domain.form.MemberUpdateForm;
 import com.myWorldcup.demo.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class MemberService {
 
     //MemberForm 을 받아서 저장하는 경우의 처리
     @Transactional
-    public Long save(MemberForm form){
+    public Long save(MemberAddForm form){
 
         Member member = memberFactory.createMember(form);
         return memberRepository.save(member);

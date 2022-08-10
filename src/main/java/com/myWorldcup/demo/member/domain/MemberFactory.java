@@ -1,12 +1,12 @@
 package com.myWorldcup.demo.member.domain;
 
-import com.myWorldcup.demo.member.domain.form.MemberForm;
+import com.myWorldcup.demo.member.domain.form.MemberAddForm;
 
 import java.time.LocalDateTime;
 
 public class MemberFactory {
 
-    public Member createMember(MemberForm form){
+    public Member createMember(MemberAddForm form){
         Member member = new Member();
 
         member.setUserId(form.getUserId());

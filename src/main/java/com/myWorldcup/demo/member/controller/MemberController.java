@@ -2,7 +2,7 @@ package com.myWorldcup.demo.member.controller;
 
 import com.myWorldcup.demo.member.domain.Member;
 import com.myWorldcup.demo.member.domain.dto.MemberDto;
-import com.myWorldcup.demo.member.domain.form.MemberForm;
+import com.myWorldcup.demo.member.domain.form.MemberAddForm;
 import com.myWorldcup.demo.member.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,7 +35,7 @@ public class MemberController {
     }
 
     @PostMapping("/add")
-    public String addMember(@Valid MemberForm form, BindingResult bindingResult){
+    public String addMember(@Valid MemberAddForm form, BindingResult bindingResult){
 
         if( bindingResult.hasErrors()){
             log.debug("errors={}",bindingResult);
