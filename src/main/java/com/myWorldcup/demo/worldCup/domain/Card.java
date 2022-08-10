@@ -12,8 +12,9 @@ public class Card {
     private Long id;
 
     // 월드컵이랑 엮이는 Id 값
-//    @ManyToOne
-    private Long worldCupId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "deck_id")
+    private WorldCupDeck worldCupDeck;
 
     private Long no;  // 해당 월드컵 내에서의 순번
     private String name; // 해당 월드컵에서 보여지는 이름

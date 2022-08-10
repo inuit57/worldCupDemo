@@ -1,10 +1,11 @@
 package com.myWorldcup.demo.worldCup.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.myWorldcup.demo.member.domain.Member;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class WorldCupDeck {
@@ -14,7 +15,8 @@ public class WorldCupDeck {
     @Column(name = "deck_id")
     private Long id;
 
-    private String Category; // enum 으로 변경 필요?
+    @Enumerated(EnumType.STRING)
+    private Category category; // 우선은 사람(연예인), 게임, 기타로 구분
 
     private String name;
     private String description;
@@ -23,9 +25,12 @@ public class WorldCupDeck {
     // 최대 진행 강수 : 2^n 승, 입력은 2^(n+1)만큼 해야 한다.
     // 예) 8강으로 설정시 16명으로 경기 진행
 
+    @OneToMany(mappedBy = "worldCupDeck" , cascade = CascadeType.ALL)
+    private List<Card> cardList = new ArrayList<>();
 
-    //@ManyToOne
-    private Long memberId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
     // 이거를 외래키 걸지는 좀 고민을 해보자
     // 탈퇴하였을 때, 월드컵은 남아있는 게 좋을테니까.
 
