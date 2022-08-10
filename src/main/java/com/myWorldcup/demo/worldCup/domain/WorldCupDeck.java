@@ -2,13 +2,29 @@ package com.myWorldcup.demo.worldCup.domain;
 
 
 import com.myWorldcup.demo.member.domain.Member;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Table(name = "wc_deck")
 public class WorldCupDeck {
+
+    protected WorldCupDeck() {}
+
+    public WorldCupDeck(Category category, String name, String description, Integer maxRound, Member member) {
+        this.category = category;
+        this.name = name;
+        this.description = description;
+        this.maxRound = maxRound;
+        this.member = member;
+
+        this.playCount = 0L;
+        this.viewCount = 0L;
+    }
 
     @Id
     @GeneratedValue
