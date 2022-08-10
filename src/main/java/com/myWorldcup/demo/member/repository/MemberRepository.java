@@ -25,4 +25,12 @@ public class MemberRepository {
     public List<Member> findAll() {
         return em.createQuery("select m from Member m").getResultList();
     }
+
+    public String findPasswordByUserId(String userId){
+         return em.createQuery("select m.userPw from Member m " +
+                        "where m.userId = :userId")
+                .setParameter("userId", userId)
+                .getResultList().get(0).toString();
+    }
+
 }

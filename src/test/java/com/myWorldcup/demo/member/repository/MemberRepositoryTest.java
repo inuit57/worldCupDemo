@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @SpringBootTest
-class MemberRepositoryTest {
+public class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
@@ -34,6 +34,25 @@ class MemberRepositoryTest {
         //then
         Assertions.assertThat(member.getId()).isEqualTo(savedId);
         Assertions.assertThat(member).isEqualTo(memberRepository.find(savedId));
+    }
+
+
+    @Test
+    @Transactional
+    void findPasswdTest(){
+        //given
+        String userId = "test1";
+        String userPw = "test000";
+        Member member = new Member(userId,userPw,"test","test@test.com");
+
+        memberRepository.save(member);
+
+        //when
+        String findPw = memberRepository.findPasswordByUserId(userId);
+
+        //then
+        Assertions.assertThat(findPw).isEqualTo(userPw);
+
     }
 
 }
